@@ -103,16 +103,29 @@ class Media {
 
   }
 
-  public static function getAllMedias() {
+  public static function getAllMedias($search) {
+
     $db = init_db();
 
-    $req = $db->prepare( "SELECT * FROM media");
-    $req->execute();
+    if(empty($search)){
+      $req = $db->prepare( "SELECT * FROM media" );
+      $req->execute();
 
-    // Close database connection
-    $db = null;
+      $db = null;
 
-    return $req->fetchAll();
+      return $req->fetchAll();
+
+    }else{
+      $req = $db->prepare( 'SELECT * FROM media WHERE title LIKE "%'.$search.'%"' );
+      $req->execute();
+
+      $db = null;
+
+      return $req->fetchAll();
+
+    }
+
   }
+
 
 }

@@ -6,7 +6,7 @@
             <div class="form-group has-btn">
                 <input type="search" id="search" name="title" value="<?= $search; ?>" class="form-control"
                        placeholder="Rechercher un film ou une série">
-
+                        
                 <button type="submit" class="btn btn-block bg-red">Valider</button>
             </div>
         </form>
