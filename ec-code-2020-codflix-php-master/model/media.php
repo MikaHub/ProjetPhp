@@ -103,4 +103,16 @@ class Media {
 
   }
 
+  public static function getAllMedias() {
+    $db = init_db();
+
+    $req = $db->prepare( "SELECT * FROM media");
+    $req->execute();
+
+    // Close database connection
+    $db = null;
+
+    return $req->fetchAll();
+  }
+
 }
