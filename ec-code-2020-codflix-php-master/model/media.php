@@ -127,5 +127,30 @@ class Media {
 
   }
 
+  public static function detailMedia($id_media ){
+
+    $db = init_db();
+
+    $req = $db->prepare( "SELECT * FROM media WHERE id = " . $id_media );
+    $req->execute();
+
+
+    $db = null;
+
+    return $req->fetch();
+  }
+  public static function detailMediaGenre($id_media ){
+
+    $db = init_db();
+
+    $req = $db->prepare( "SELECT * FROM genre WHERE id = " . $id_media );
+    $req->execute();
+
+
+    $db = null;
+
+    return $req->fetch();
+  }
+
 
 }
