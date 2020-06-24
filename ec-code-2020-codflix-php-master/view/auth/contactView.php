@@ -11,12 +11,12 @@
           <form method="post" action="index.php?action=contact" class="custom-form">
 
             <div class="form-group">
-              <label for="email">Your name</label>
+              <label for="name">Your name</label>
               <input type="text" name="name" value="" id="name" class="form-control" />
             </div>
 
             <div class="form-group">
-              <label for="password">Your email</label>
+              <label for="email">Your email</label>
               <input type="email" name="email" id="email" class="form-control" />
             </div>
 
@@ -34,7 +34,11 @@
               </div>
             </div>
           </div>
-
+          <div class="col d-flex justify-content-end">
+                <div>
+                <a href="index.php" class="btn btn-dark">X</a>
+                </div>
+         </div>
             <span class="error-msg">
               <?= isset( $error_msg ) ? $error_msg : null; ?>
             </span>

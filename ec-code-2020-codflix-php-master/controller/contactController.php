@@ -15,7 +15,7 @@ function contact() {
 
 function sendEmail( $post ) {
 
-     $to      = 'hugo.anthonyboutot@gmail.com';
+     $to      = 'contact@codflix.com';
      $message = $post['message'];
      $headers = 'From ' . $post['email'] . "\r\n" . $post['name'];
 
