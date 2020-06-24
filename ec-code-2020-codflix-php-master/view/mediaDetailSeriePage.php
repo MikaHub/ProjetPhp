@@ -29,19 +29,41 @@
 <div class="col mt-5">
     <div class="row mt-4">
         <div class="col mt-2">
-            <span id="media_genre" class="row">Genre : <?= $reqGenre['name']?></span>
-            <span id="media_genre" class="row">Type : <?= $reqTypeOf['name']?> ; Status : <?= $req['status']?></span>
-            <p class="row">Date de réalisation: <?= $req['release_date']?></p>
-            <p class="row">Durée : <?= $req['duration']?></p>
+            <span id="media_genre" class="row">Genre : <?= $reqGenre['name'];?></span>
+            <span id="media_genre" class="row">Type : <?= $reqTypeOf['name'];?> ; Status : <?= $req['status']?></span>
+            <p class="row">Date de réalisation: <?= $req['release_date'];?></p>
+            <p class="row">Durée : <?= $req['duration'];?></p>
         </div>
         <span>Sommaire : <?= $req['summary']?></span>
+
+
+        <form method="post" action="controller/detailController.php">
+
+            <input type="hidden" name="media" value="<?= $_GET['media'];?>">
+            <input type="hidden" name="typeOf" value="<?= $_GET['action'];?>">
+            <input type="hidden" name="genre" value="<?= $_GET['genre'];?>">
+
+            <select name="saison">
+                <option value="">--Please choose an option--</option>
+                <option value="saison1">Saison 1</option>
+                <option value="saison2">Saison 2</option>
+            </select>
+            <select name="episode">
+                <option value="">--Please choose an option--</option>
+                <option value="episode1">Episode 1</option>
+                <option value="episode2">Episode 2</option>
+            </select>
+            <p><input type="submit"></p>
+
+        </form>
         <p></p>
     </div>
     <div class="row video mt-4">
 
             <iframe width="560" height="315" src="<?= $req['trailer_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    
+
+
 </div>
 
 

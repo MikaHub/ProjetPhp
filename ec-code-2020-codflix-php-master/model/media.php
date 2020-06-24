@@ -12,6 +12,11 @@ class Media {
   protected $release_date;
   protected $summary;
   protected $trailer_url;
+  protected $typeOf;
+  protected $serie;
+  protected $episode1;
+  protected $episode2;
+  protected $episode3;
 
   public function __construct( $media ) {
 
@@ -36,8 +41,8 @@ class Media {
     $this->title = $title;
   }
 
-  public function setType( $type ) {
-    $this->type = $type;
+  public function setType( $typeof ) {
+    $this->typeof = $typeof;
   }
 
   public function setStatus( $status ) {
@@ -47,6 +52,19 @@ class Media {
   public function setReleaseDate( $release_date ) {
     $this->release_date = $release_date;
   }
+  public function setSerie( $serie ) {
+    $this->serie = $serie;
+  } 
+  public function setEpisode1( $episode1 ) {
+    $this->episode1 = $episode1;
+  }
+  public function setEpisode2( $episode2 ) {
+    $this->episode2 = $episode2;
+  }
+  public function setEpisode3( $episode3) {
+    $this->episode3 = $episode3;
+  }
+
 
   /***************************
   * -------- GETTERS ---------
@@ -65,7 +83,7 @@ class Media {
   }
 
   public function getType() {
-    return $this->type;
+    return $this->typeOf;
   }
 
   public function getStatus() {
@@ -83,6 +101,20 @@ class Media {
   public function getTrailerUrl() {
     return $this->trailer_url;
   }
+
+  public function getSerie() {
+    return $this->serie;
+  } 
+  public function getEpisode1() {
+    return $this->episode1;
+  }
+  public function getEpisode2() {
+    return $this->episode2;
+  }
+  public function getEpisode3() {
+    return $this->episode3;
+  }
+
 
   /***************************
   * -------- GET LIST --------
@@ -164,6 +196,5 @@ class Media {
 
     return $req->fetch();
   }
-
 
 }
