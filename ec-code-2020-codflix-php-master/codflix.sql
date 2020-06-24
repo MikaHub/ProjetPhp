@@ -110,7 +110,7 @@ ALTER TABLE `media`
 
 --
 -- Indexes for table `history`
---
+-- 
 ALTER TABLE `history`
   ADD PRIMARY KEY (`id`),
   ADD KEY `history_user_id_fk_media_id` (`user_id`),

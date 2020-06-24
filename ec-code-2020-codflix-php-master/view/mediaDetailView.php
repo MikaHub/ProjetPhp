@@ -14,7 +14,7 @@
     // echo $req['status'];
     // echo $req['release_date'];
     // echo $req['summary'];
-    // echo $req['trailer_url'];
+    echo $req['trailer_url'];
 
 ?>
 
@@ -26,22 +26,23 @@
         <div>
             <a href="index.php" class="btn btn-dark">X</a>
         </div>
-        
     </div>
 </div>
 
 <div class="col mt-5">
     <div class="row mt-4">
         <div class="col mt-2">
-            <span id="media_genre" class="row">Genre :<?= $reqGenre['name']?> Type : <?= $req['type']?></span>
+            <span id="media_genre" class="row">Genre : <?= $reqGenre['name']?></span>
+            <span id="media_genre" class="row">Type : <?= $req['type']?> ; Status : <?= $req['status']?></span>
             <p class="row">Date de réalisation: <?= $req['release_date']?></p>
+            <p class="row">Durée : <?= $req['duration']?></p>
         </div>
-        <span><?= $req['summary']?></span>
+        <span>Sommaire : <?= $req['summary']?></span>
         <p></p>
     </div>
     <div class="row video mt-4">
-        <iframe allowfullscreen="true" frameborder="0" width="100%" 
-            src="<?= $req['trailer_url']; ?>" ></iframe>
+
+            <iframe width="560" height="315" src="<?= $req['trailer_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     
 </div>
