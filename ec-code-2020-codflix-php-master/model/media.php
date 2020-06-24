@@ -139,11 +139,24 @@ class Media {
 
     return $req->fetch();
   }
-  public static function detailMediaGenre($id_media ){
+  public static function detailMediaGenre($genre ){
 
     $db = init_db();
 
-    $req = $db->prepare( "SELECT * FROM genre WHERE id = " . $id_media );
+    $req = $db->prepare( "SELECT * FROM `genre` WHERE id = ". $genre);
+    $req->execute();
+
+
+    $db = null;
+
+    return $req->fetch();
+  }
+
+  public static function detailTypeOf($id_media){
+
+    $db = init_db();
+
+    $req = $db->prepare( "SELECT * FROM `type` WHERE id = " . $id_media );
     $req->execute();
 
 

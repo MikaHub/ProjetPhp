@@ -1,4 +1,6 @@
-<?php ob_start(); ?>
+<?php ob_start(); 
+
+?>
 
 <div class="row">
     <div class="col-md-4 offset-md-8">
@@ -16,7 +18,7 @@
 <div class="media-list">
     <?php foreach( $medias as $media ): ?>
     <!--   <a class="item" href="../ec-code-2020-codflix-php-master/view/mediaDetailView.php?media=<?//=$media['id'];?>">-->
-        <a class="item" href="index.php?action=detail&media=<?=$media['id'];?>">
+        <a class="item" href="index.php?action=<?=$media['typeof']?>&media=<?=$media['id'];?>&genre=<?=$media['genre_id'];?>">
             <div class="video">
                 <div>
                     <iframe allowfullscreen="" frameborder="0"

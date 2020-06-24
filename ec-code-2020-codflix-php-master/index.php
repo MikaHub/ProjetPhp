@@ -43,11 +43,17 @@ if ( isset( $_GET['action'] ) ):
 
     break;
 
-    case'detail':
+    //go to film page
+    case 1:
 
       mediaDetailPage();
 
     break;  
+    // go to serie page to have episode and saison
+    case 2:
+      mediaDetailSeriePage();
+    
+    break;
 
     case 'contact';
 
