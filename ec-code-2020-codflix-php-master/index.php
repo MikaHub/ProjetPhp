@@ -6,7 +6,7 @@ require_once( 'controller/signupController.php' );
 require_once( 'controller/mediaController.php' );
 require_once( 'controller/mediaDetailController.php' );
 require_once( 'controller/contactController.php' );
-
+require_once( 'controller/profilController.php' );
 
 /**************************
 * ----- HANDLE ACTION -----
@@ -49,8 +49,10 @@ if ( isset( $_GET['action'] ) ):
       mediaDetailPage();
 
     break;  
+
     // go to serie page to have episode and saison
     case 2:
+
       mediaDetailSeriePage();
     
     break;
@@ -59,8 +61,13 @@ if ( isset( $_GET['action'] ) ):
 
       contact();
 
-      break;
+    break;
 
+    case 'profil';
+
+      profilPage();
+
+    break;  
 
   endswitch;
 
