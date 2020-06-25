@@ -171,6 +171,20 @@ class Media {
 
     return $req->fetch();
   }
+
+  // public static function selectSerie($title , $saison){
+
+  //   $db = init_db();
+
+  //   $req = $db->prepare( "SELECT * FROM media WHERE title = $title AND saison = $saison" );
+  //   $req->execute();
+
+
+  //   $db = null;
+
+  //   return $req->fetch();
+  // }
+
   public static function detailMediaGenre($genre ){
 
     $db = init_db();

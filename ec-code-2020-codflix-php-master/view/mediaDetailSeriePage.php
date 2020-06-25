@@ -5,12 +5,14 @@
     $id_media = $_GET['media'];
     $genre = $_GET['genre'];
     $typeOf = $_GET['action'];
-
     
     $reqGenre = Media::detailMediaGenre($genre);
     //$reqGenre = Media::detailMediaGenre($id_media);
     $req = Media::detailMedia($id_media);
 
+   // $reqSerie = Media::selectSerie($title, $saison);
+
+    var_dump($reqSerie);
     $reqTypeOf = Media::detailTypeOf($typeOf);
 
 ?>
@@ -37,7 +39,7 @@
         <span>Sommaire : <?= $req['summary']?></span>
 
 
-        <form method="post" action="controller/detailController.php">
+        <form method="post">
 
             <input type="hidden" name="media" value="<?= $_GET['media'];?>">
             <input type="hidden" name="typeOf" value="<?= $_GET['action'];?>">
@@ -46,7 +48,6 @@
             <select name="saison">
                 <option value="">--Please choose an option--</option>
                 <option value="saison1">Saison 1</option>
-                <option value="saison2">Saison 2</option>
             </select>
             <select name="episode">
                 <option value="">--Please choose an option--</option>
@@ -60,10 +61,20 @@
     </div>
     <div class="row video mt-4">
 
-            <iframe width="560" height="315" src="<?= $req['trailer_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <?php
+            $video1 =  $req['episode1'];
+            $video2 =  $req['episode2'];
+            
+                if($_POST['saison'] == "saison1" && $_POST['episode'] == "episode1"):
+                    echo "<iframe width=\"560\" height=\"315\" src=" . $video1 . " frameborder=\"0\" allowfullscreen></iframe>";
+                elseif($_POST['saison'] == "saison1" && $_POST['episode'] == "episode2"):   
+                    echo "<iframe width=\"560\" height=\"315\" src=" . $video2 . " frameborder=\"0\" allowfullscreen></iframe>";
+
+                endif; 
+            ?>
+            
+
     </div>
-
-
 </div>
 
 

@@ -6,6 +6,7 @@
     $genre = $_GET['genre'];
     $typeOf = $_GET['action'];
 
+
     
     $reqGenre = Media::detailMediaGenre($genre);
     //$reqGenre = Media::detailMediaGenre($id_media);
@@ -34,7 +35,8 @@
             <p class="row">Date de réalisation: <?= $req['release_date']?></p>
             <p class="row">Durée : <?= $req['duration']?></p>
         </div>
-        <span>Sommaire : <?= $req['summary']?></span>
+        
+        <span>Sommaire : <?= $req['summary']; ?></span>
         <p></p>
     </div>
     <div class="row video mt-4">

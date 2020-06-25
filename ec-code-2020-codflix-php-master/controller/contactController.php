@@ -8,7 +8,6 @@ if (isset($_POST['send'])) {
 }
 
 function contact() {
-
     $email = $_POST['email'];
     $message = $_POST['message'];
 
