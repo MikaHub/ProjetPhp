@@ -17,7 +17,6 @@
 
 <div class="media-list">
     <?php foreach( $medias as $media ): ?>
-    <!--   <a class="item" href="../ec-code-2020-codflix-php-master/view/mediaDetailView.php?media=<?//=$media['id'];?>">-->
         <a class="item" href="index.php?action=<?=$media['typeof']?>&media=<?=$media['id'];?>&genre=<?=$media['genre_id'];?>">
             <div class="video">
                 <div>

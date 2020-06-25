@@ -47,7 +47,7 @@ function updateAccount( $user_id) {
     }
     elseif (strlen($newPassword) < 6)
     {
-        $error_msg = "Nouveau mot de passe incorrect. Min. 6 caractères.";
+        $error_msg = "Nouveau mot de passe incorrect. Il vous faut minimum 6 caractères.";
     }
     elseif ($newPassword != $newPasswordConfirm)
     {

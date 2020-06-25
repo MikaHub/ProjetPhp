@@ -6,9 +6,6 @@
 <form method="post" action="index.php?action=history" class="custom-form">
     <div class="row">
         <h1 class="media-header col-md-10">Mes derniers média vu</h1>
-<!--         <?php if ($visitedMedias): ?>
-            <input type="submit" name="deleteAllHistory" value="Supprimer tout mon historique" class="btn btn-block bg-red col-md-2 text-white" />
-        <?php endif; ?> -->
     </div>
 
     <div class="media-list">

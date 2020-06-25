@@ -9,7 +9,6 @@
     $typeOf = $_GET['action'];
     
     $reqGenre = Media::detailMediaGenre($genre);
-    //$reqGenre = Media::detailMediaGenre($id_media);
     $req = Media::detailMedia($id_media);
 
     
@@ -17,7 +16,6 @@
     
     $addMedia = Media::addMedia($user_id, $id_media);
 
-   // $reqSerie = Media::selectSerie($title, $saison);
     $reqTypeOf = Media::detailTypeOf($typeOf);
 
 ?>

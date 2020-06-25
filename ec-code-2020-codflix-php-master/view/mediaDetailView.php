@@ -5,11 +5,9 @@
     $id_media = $_GET['media'];
     $genre = $_GET['genre'];
     $typeOf = $_GET['action'];
-
-
     
     $reqGenre = Media::detailMediaGenre($genre);
-    //$reqGenre = Media::detailMediaGenre($id_media);
+
     $req = Media::detailMedia($id_media);
 
     $reqTypeOf = Media::detailTypeOf($typeOf);
