@@ -100,7 +100,7 @@ class User {
  $req->closeCursor();
 
  $email = $this->getEmail();
- //echo $this->getPassword();
+
  $req  = $db->prepare( "INSERT INTO user ( email, password, keyEmail, emailVerified ) VALUES ( :email, :password, :keyEmail, :emailVerified)" );
  $req->execute( array(
    'email'     => $this->getEmail(),
@@ -137,7 +137,6 @@ class User {
 
   public function getUserByEmail($email = null) {
 
-    var_dump($email);
     // Open database connection
     $db   = init_db();
 
@@ -147,8 +146,6 @@ class User {
     }
     $req->execute( array( $this->getEmail() ));
 
-    var_dump("ici");
-    var_dump($this->getEmail());
     // Close databse connection
     $db   = null;
 

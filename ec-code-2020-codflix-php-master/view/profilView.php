@@ -24,7 +24,7 @@ $req = User::getUserById($id_user);
             </div>
 
             <div class="form-group">
-              <label for="email">Adresse email</label>
+              <label for="email">Votre nouvelle adresse email </label>
               <input type="email" name="email" id="email" class="form-control" />
             </div>
 
@@ -34,7 +34,7 @@ $req = User::getUserById($id_user);
             </div>
 
             <div class="form-group">
-              <label for="newPassword">Nouveau mot de passe</label>
+              <label for="newPassword">Votre nouveau mot de passe</label>
               <input type="password" name="newPassword" id="newPassword" class="form-control" />
             </div>
 
@@ -46,11 +46,11 @@ $req = User::getUserById($id_user);
             <div class="form-group">
               <div class="row">
 
-                <div class="col-md-6">
-                  <input type="submit" name="ValiderProfil" value="Modifier mes informations" class="btn btn-block bg-blue" />
+                <div class="col-md-12">
+                  <input type="submit" name="ValiderProfil" value="Modifier les informations" class="btn btn-block bg-blue" />
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-12 mt-4">
                     <input type="submit" name="Delete" value="Supprimer mon compte" class="btn btn-block bg-red" />
                 </div>               
               </div>              

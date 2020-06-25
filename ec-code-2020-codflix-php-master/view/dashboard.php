@@ -19,9 +19,10 @@
         <div class="sidebar-menu">
           <ul>
             <li class="active"><a href="index.php">Médias</a></li>
-            <li><a href="index.php?action=contact">Nous contacter</a></li>
-            <li><a href="index.php?action=profil">Mon profil</a></li>
+            <li><a href="index.php?action=history">Historique Médias</a></li>
+            <li><a href="index.php?action=profil">Modifier mon profil</a></li>
             <li><a href="index.php?action=logout">Me déconnecter</a></li>
+            <li><a href="index.php?action=contact">Nous contacter</a></li>
           </ul>
         </div>
       </nav>

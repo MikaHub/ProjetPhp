@@ -12,6 +12,7 @@ function profilPage() {
 
         if(isset($_POST['ValiderProfil'])){
             updateAccount($user_id);
+   
         }
         elseif(isset($_POST['Delete'])){
             deleteAccount($user_id);
@@ -24,17 +25,15 @@ function profilPage() {
 }
 
 function updateAccount( $user_id) {
-
-    var_dump($user_id);
-
+    
     $email = $_POST['email'];
-    echo $email ;
+    
     $password = hash('sha256', $_POST['password']); // Hash input password to compare with the hashed password within DB.
+    
     $newPassword = $_POST['newPassword'];
-    echo $newPassword;
-    $newPasswordConfirm = $_POST['new_password_confirm'];
-    echo $newPasswordConfirm;
 
+    $newPasswordConfirm = $_POST['new_password_confirm'];
+    
     $user = new User();
     $userData = $user->getUserById($user_id); // Get the current user's data in order to compare the inputs with the current data.
 
@@ -78,7 +77,6 @@ function updateAccount( $user_id) {
 
 function deleteAccount($user_id){
 
-    var_dump("DELETEACC");
     $user_id = $_SESSION['user_id'];
     $password = hash('sha256', $_POST['password']);
 
