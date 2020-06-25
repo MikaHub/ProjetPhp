@@ -2,6 +2,8 @@
 
 require_once('model/user.php');
 require_once('model/database.php');
+include('other.php');
+
 
 /****************************
 * ----- LOAD SIGNUP PAGE -----
@@ -29,19 +31,15 @@ if(isset($_POST['Valider'])){
 
 function singnup(){
 
-  // session_start();
-    
-  // if one session is open
-  // if(isset($_SESSION['id'])){
-
-  //   exit;
-  // }
-
-   // Verification of value on form
-
    if(!empty($_POST)){
-    extract($_POST);
-    $valid = true;
+      extract($_POST);
+      //var_dump($_POST);
+			$email = $_POST['email'];
+			$password = $_POST['password'];
+      $password_confirm = $_POST['password_confirm'];
+      //var_dump($password);
+      //var_dump($password_confirm);
+			$valid = true;
 
   // Setup value 
     if(isset($_POST['Valider'])){

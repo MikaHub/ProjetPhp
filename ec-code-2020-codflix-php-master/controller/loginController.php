@@ -34,18 +34,20 @@ function login( $post ) {
   $user           = new User( $data );
   $userData       = $user->getUserByEmail();
 
-  $error_msg      = "Email ou mot de passe incorrect";
+  //$error_msg      = "Email ou mot de passe incorrect";
 
-  if( $userData && sizeof( $userData ) != 0 ):
-    if( $user->getPassword() == $userData['password'] ):
+  if( $userData && sizeof( $userData ) != 0 ){
 
       // Set session
       $_SESSION['user_id'] = $userData['id'];
+      $_SESSION['emailVerified'] = $userData['emailVerified'];
+
 
       header( 'location: index.php ');
-    endif;
-  endif;
-
+  }else{
+    $error_msg = "Email ou mot de passe incorrect";
+  }
+  
   require('view/auth/loginView.php');
 }
 
@@ -54,6 +56,7 @@ function login( $post ) {
 ****************************/
 
 function logout() {
+
   $_SESSION = array();
   session_destroy();
 

@@ -7,8 +7,7 @@ if (isset($_POST['send'])) {
     echo $_POST['send'];
 }
 
-function contact() {
-
+function contact( ) {
     require('view/auth/contactView.php');
 
 }

@@ -13,7 +13,7 @@ class Media {
   protected $summary;
   protected $trailer_url;
   protected $typeOf;
-  protected $serie;
+  protected $saison;
   protected $episode1;
   protected $episode2;
   protected $episode3;
@@ -52,8 +52,8 @@ class Media {
   public function setReleaseDate( $release_date ) {
     $this->release_date = $release_date;
   }
-  public function setSerie( $serie ) {
-    $this->serie = $serie;
+  public function setSaison( $saison ) {
+    $this->saison = $saison;
   } 
   public function setEpisode1( $episode1 ) {
     $this->episode1 = $episode1;
@@ -102,8 +102,8 @@ class Media {
     return $this->trailer_url;
   }
 
-  public function getSerie() {
-    return $this->serie;
+  public function getSaison() {
+    return $this->saison;
   } 
   public function getEpisode1() {
     return $this->episode1;
