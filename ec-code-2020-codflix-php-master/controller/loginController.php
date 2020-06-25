@@ -36,19 +36,24 @@ function login( $post ) {
 
   //$error_msg      = "Email ou mot de passe incorrect";
 
-  if( $userData && sizeof( $userData ) != 0 ){
+  if( $userData && sizeof( $userData ) != 0 )
+  {
 
+    if( $user->getPassword() == $userData['password'])
+    {
       // Set session
       $_SESSION['user_id'] = $userData['id'];
       $_SESSION['emailVerified'] = $userData['emailVerified'];
 
-
       header( 'location: index.php ');
-  }else{
-    $error_msg = "Email ou mot de passe incorrect";
-  }
-  
-  require('view/auth/loginView.php');
+    }else{
+      $error_msg = "Email ou mot de passe incorrect";
+      require('view/auth/loginView.php');
+    }
+
+    }else{
+      $error_msg = "Email ou mot de passe incorrect";
+    }
 }
 
 /****************************

@@ -4,6 +4,11 @@
   <div class="bg-black">
     <div class="row no-gutters">
       <div class="col-md-6 full-height bg-white">
+      <div class="col d-flex justify-content-end">
+                <div>
+                <a href="index.php" class="btn btn-dark">X</a>
+                </div>
+         </div>
         <div class="auth-container">
           <a href=index.php> <h2><span>Cod</span>'Flix</h2></a>
           <h3>Nous Contacter</h3>
@@ -22,7 +27,7 @@
 
             <div class="form-group">
               <label for="comment">Message</label>
-              <textarea class="form-control" rows="5" name="message" id="message" id="comment"></textarea>
+              <textarea class="form-control" rows="5" name="message" id="email" id="comment"></textarea>
             </div>
 
             <div class="form-group">
@@ -34,11 +39,7 @@
               </div>
             </div>
           </div>
-          <div class="col d-flex justify-content-end">
-                <div>
-                <a href="index.php" class="btn btn-dark">X</a>
-                </div>
-         </div>
+
             <span class="error-msg">
               <?= isset( $error_msg ) ? $error_msg : null; ?>
             </span>

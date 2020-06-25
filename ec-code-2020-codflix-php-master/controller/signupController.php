@@ -33,12 +33,11 @@ function singnup(){
 
    if(!empty($_POST)){
       extract($_POST);
-      //var_dump($_POST);
-			$email = $_POST['email'];
-			$password = $_POST['password'];
+      $email = $_POST['email'];      
+      $password = $_POST['password'];
       $password_confirm = $_POST['password_confirm'];
+
       //var_dump($password);
-      //var_dump($password_confirm);
 			$valid = true;
 
   // Setup value 
@@ -56,7 +55,7 @@ function singnup(){
         $valid = false;
         $error_msg = "Le mail n'est pas valide";
       }
-    }
+    
     // Verification password
     if(empty($password)) {
       $valid = false;
@@ -66,6 +65,7 @@ function singnup(){
        {
          $valid = false;
          $error_msg = "La confirmation du mot de passe ne correspond pas";
+      }
     }
     //Set value to create user
     if($valid){

@@ -87,34 +87,6 @@ class User {
 
   public function createUser() {
 
- /*  $db   = init_db();
-    			// Check if email already exist
-			$email = $this->getEmail();
-      $pas = $this->getPassword();
-			$userByEmail = $this->getUserByEmail();
-			if ($userByEmail) {
-				throw new Exception("Email déjà utilisé");
-      }
-      
-    // Open database connection
-
-
-    $req  = $db->prepare( "INSERT INTO user ( email, password, keyEmail, emailVerified ) VALUES ( :email, :password, :keyEmail, :emailVerified )" );
-    $req->execute( array(
-      'email'     => $this->getEmail(),
-      'password'  => $this->getPassword(),
-      'keyEmail'  => null,
-      'emailVerified'  => null
-    ));
-
-    $this->sendConfirmationEmail($db, $email);
-
-
-    // Close databse connection
-    $db = null;
-
-  } */
-
   // Open database connection
  $db   = init_db();
 
@@ -181,6 +153,37 @@ class User {
     $db   = null;
 
     return $req->fetch();
+  }
+
+    /***************************************
+  * ------- UPDATE ET DELETE USER -------
+  ****************************************/
+
+
+  public function updateUser() {
+
+    $db   = init_db();
+
+    $req  = $db->prepare( "UPDATE user SET email = :email, password = :password WHERE id = :id;" );
+    $req->execute( array(
+      'email' => $this->getEmail(),
+      'password' => hash('sha256', $this->getPassword()),
+      'id' => $this->getId()
+    ));
+
+    // Close databse connection
+    $db   = null;
+  }
+
+  public function deleteUser() {
+
+    $db   = init_db();
+
+    $req  = $db->prepare( "DELETE FROM user WHERE id = ?" );
+    $req->execute( array( $this->getId() ));
+
+    // Close databse connection
+    $db   = null;
   }
 
 

@@ -6,16 +6,26 @@ $req = User::getUserById($id_user);
 
 ?>
  <div class="col-md-12 full-height bg-white">
+   
+          <div class="col d-flex justify-content-end">
+                <div>
+                <a href="index.php" class="btn btn-dark">X</a>
+                </div>
+         </div>
+
         <div class="auth-container">
-          <h2><span>Cod</span>'Flix</h2>
+        <a href=index.php><h2><span>Cod</span>'Flix</h2></a>
           <h3>Mon compte</h3>
 
           <form method="post" class="custom-form">
 
+          <div class="form-group">
+              <label for="name">Vous actuellement connecté avec cette adresse mail : <?= $req['email'] ?></label>
+            </div>
+
             <div class="form-group">
               <label for="email">Adresse email</label>
               <input type="email" name="email" id="email" class="form-control" />
-              <!-- value="<?= $response['email']; ?>" -->
             </div>
 
             <div class="form-group">
@@ -30,14 +40,14 @@ $req = User::getUserById($id_user);
 
             <div class="form-group">
               <label for="newPasswordConfirm">Confirmer nouveau mot de passe</label>
-              <input type="password" name="newPasswordConfirm" id="newPasswordConfirm" class="form-control" />
+              <input type="password" name="new_password_confirm" id="new_password_confirm" class="form-control" />
             </div>
 
             <div class="form-group">
               <div class="row">
 
                 <div class="col-md-6">
-                  <input type="submit" name="Valider" value="Modifier mes informations" class="btn btn-block bg-blue" />
+                  <input type="submit" name="ValiderProfil" value="Modifier mes informations" class="btn btn-block bg-blue" />
                 </div>
 
                 <div class="col-md-6">
