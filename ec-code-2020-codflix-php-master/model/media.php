@@ -211,4 +211,56 @@ class Media {
     return $req->fetch();
   }
 
+
+  public static function visitedMedias( $user_id ){
+    // Open database connection
+    $db   = init_db();
+
+    $req  = $db->prepare( "SELECT * FROM history WHERE user_id = ? ORDER BY finish_date DESC" );
+    $req->execute( array( $user_id ));
+
+    // Close databse connection
+    $db   = null;
+
+    return $req->fetchAll();
+  }
+
+  public static function addMedia($user_id, $media_id){
+    // Open database connection
+    $db   = init_db();
+
+    $req = $db->prepare("SELECT * FROM history where media_id = :media_id AND user_id = :user_id");
+    $req->execute( array(
+      'user_id' => $user_id,
+      'media_id' => $media_id
+    ));
+
+    // If the user has not already visited this media
+    if( $req->rowCount() <= 0 )
+    {
+      $req  = $db->prepare( "INSERT INTO history (user_id, media_id, start_date, finish_date, watch_duration) VALUES (:user_id, :media_id, :start_date, :finish_date, :watch_duration)" );
+      $req->execute( array( 
+        'user_id' => $user_id,
+        'media_id' => $media_id,
+        'start_date' => date("Y-m-d H:i:s"),
+        'finish_date' => date("Y-m-d H:i:s"),
+        'watch_duration' => '0'
+      ));
+    }
+    else // Else, just update the last visit date.
+    {
+      $req = $db->prepare("UPDATE history SET finish_date = :finish_date WHERE user_id = :user_id AND media_id = :media_id");
+      $req->execute( array(
+        'finish_date' => date("Y-m-d H:i:s"),
+        'user_id' => $user_id,
+        'media_id' => $media_id
+      ));
+
+    }
+
+    // Close databse connection
+    $db   = null;
+  }
+
+
 }
